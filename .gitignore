@@ -6,3 +6,7 @@
 /public/results
 /.sass-cache
 npm-debug.log
+/public/css/*.css.map
+/public/css/*.css
+pediff.js
+

@@ -94,4 +94,4 @@ gulp.task('build', [,
     'sass'
 ]);
 
-gulp.task('default', $.sequence('watch', 'sync'));
+gulp.task('default', $.sequence('sass', 'watch', 'sync'));

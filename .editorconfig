@@ -28,3 +28,6 @@ trim_trailing_whitespace = true
 
 # Ensure file ends with a newline when saving ["true", "false"]
 insert_final_newline = true
+
+[package.json]
+tab_width = 2
