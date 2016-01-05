@@ -7,6 +7,7 @@ define([
     var Model = Backbone.Model.extend({
         defaults: {},
         parse: function(data) {
+            debugger;
             data.screenshotsCount = 0;
             _.each(data.specs, function(spec) {
                 _.each(spec.results, function(result){
@@ -18,8 +19,8 @@ define([
             data.finished = new Date(data.finished);
             data.duration = data.duration / 1000;
 
-            data.environments = data.config.environments;
-            data.viewports = data.config.viewports;
+            data.environments = data.environments;
+            data.viewports = data.viewports;
 
             data = _.omit(data, ['config', 'results']);
 

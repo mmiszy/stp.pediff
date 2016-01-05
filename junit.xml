@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="file:///Users/miszy/htdocs/casperjs/bin/bootstrap.js" hostname="localhost" tests="2" failures="1" errors="0" time="0" timestamp="2016-01-05T15:26:03Z">
+<testsuite id="0" name="dashboard" hostname="localhost" tests="1" failures="0" errors="0" time="0" timestamp="2016-01-05T15:26:03Z">
+<testcase name="_default" tests="1" failures="0" errors="0" time="0" timestamp="2016-01-05T15:26:03Z">
+</testcase>
+</testsuite>
+<testsuite id="1" name="login" hostname="localhost" tests="1" failures="1" errors="0" time="0" timestamp="2016-01-05T15:26:03Z">
+<testcase name="_default" tests="1" failures="1" errors="0" time="0" timestamp="2016-01-05T15:26:03Z">
+<failure type="AssertionFailedError" message="@1280x800 - images are similar in 99%" />
+</testcase>
+<system-out>
+<![CDATA[
+@1280x800 - images are similar in 99%
+]]>
+</system-out>
+</testsuite>
+</testsuites>
