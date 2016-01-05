@@ -15,6 +15,7 @@ echo "Taking screenshots..."
 for file in `ls tasks/*.js | xargs -n 1 basename`;
 do
     casperjs run.js --web-security=no ${file} &
+    echo "Taking screenshots... ${file}"
     tasksRunning=$(($tasksRunning+1))
     if [[ $1 && $tasksRunning -ge $1 ]]; then
         wait
@@ -47,13 +48,16 @@ do
     # Assign absolute number of pixels that are different to a variable
     ae=$(compare -dissimilarity-threshold 1 -metric AE ${candidate} ${current} ../diff/${file} 2>&1)
     # Handle different implementations of grep
-    if [[ `uname` == 'Darwin' ]]; then 
+    if [[ `uname` == 'Darwin' ]]; then
         fsize=$(echo ${file} | grep -Eo --color=never '\d+x\d+' | tr 'x' '*' | bc)
     else
         fsize=$(echo ${file} | grep -Po '\d+x\d+' | tr 'x' '*' | bc)
     fi
+
     # Add relative error factor to the name of the files for sorting
-    factor=$(echo "$ae/$fsize" | sed -e 's/[eE]+*/\*10\^/' | bc -l | cut -c -9 | tr -d '.')
+    factor=$(echo "$ae/$fsize" | sed -e 's/[eE]+*/\*10\^/' | bc -l | cut -c -5 | tr -d '.')
+    echo "ae $ae"
+    echo "fsize $fsize"
     newfname=${factor}_${file}
     mv ../diff/${file} ../diff/${newfname}
     mv ../candidate/${file} ../candidate/${newfname}
@@ -70,8 +74,8 @@ do
        then
           continue
        fi
-      convert ${file} -strip -interlace Plane -quality 75% ${file%.png}.jpg
-      mv ${file} hq/${file}
+       convert ${file} -strip -interlace Plane -quality 75% ${file%.png}.jpg
+       mv ${file} hq/${file}
    done
 done
 

@@ -360,12 +360,16 @@ PediffReport.prototype = {
         }
     },
 
+    similarityFromDiff: function (diff) {
+        return Math.floor((10000 - parseInt(diff)) / 100);
+    },
+
     diffToPercent: function (diff) {
-        return (diff === -1) ? 'N/A' : Math.floor(parseInt(diff) / 100) + '%';
+        return (diff === -1) ? 'N/A' : this.similarityFromDiff(diff) + '%';
     },
 
     diffToLevel: function (diff) {
-        return (diff === -1) ? 0 : Math.floor(parseInt(diff) / 1000) * 10;
+        return (diff === -1) ? 0 : Math.floor(this.similarityFromDiff(diff) / 10) * 10;
     },
 
     displayName: function (name) {

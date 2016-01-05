@@ -96,7 +96,7 @@ for (i = 0; i < files.length; i++) {
         media = matches[4],
         diff = matches[1];
 
-    if(action) {
+    if (action) {
         action = action[1];
     }
 
@@ -104,7 +104,7 @@ for (i = 0; i < files.length; i++) {
         media = null;
     }
 
-    if(action) {
+    if (action) {
         var variants = report.tasks[name].actions[action].variants;
     } else {
         variants = report.tasks[name].variants;

@@ -17,11 +17,14 @@ pediff.start().each(Object.keys(pediff.config.environments), function(pd, enviro
         self.then(function(){ this.setEnvironment(environment); });
         self.then(function(){
             this.viewport(viewport.width, viewport.height, function(){
+                console.log('\n\n' + this.config.path + ' ' + this.config.package + '\n\n');
                 this.thenOpen(this.config.environments[environment] + (this.config.path || ''), function() {
                     this.preExecute();
                     this.execute();
                 });
-                this.then(function(){
+
+                this.then(function () {
+                    this.finish();
                     this.postExecute();
                 })
             });

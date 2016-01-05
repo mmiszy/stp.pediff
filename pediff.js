@@ -38,6 +38,7 @@ Pediff.prototype.init = function(task){
     utils.mergeObjects(this.options, this.config.options);
     this.options.onResourceRequested = this.setMocks;
     this.execute = task.execute;
+    this.finish = task.finish;
 };
 
 /**
