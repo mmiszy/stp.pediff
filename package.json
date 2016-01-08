@@ -1,6 +1,6 @@
 {
   "name": "pediff",
-  "version": "2.4.1",
+  "version": "2.5.0",
   "description": "Perceptual difference testing tool",
   "main": "index.js",
   "preferGlobal": true,
@@ -13,7 +13,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js run all"
+    "start": "node index.js run all",
+    "results": "gulp"
   },
   "author": "Schibsted Tech Polska Sp. z o.o.",
   "license": "ISC",
